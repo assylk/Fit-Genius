@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FitnessAI
 
-## Getting Started
+A powerful AI-powered fitness application that helps users track their workouts, get personalized recommendations, and achieve their fitness goals.
 
-First, run the development server:
+## Project Overview
 
+FitnessAI is an intelligent fitness companion that leverages artificial intelligence to provide personalized workout plans, track progress, and offer real-time feedback on exercise form. The application uses advanced machine learning algorithms to adapt to each user's fitness level and goals.
+
+## Prerequisites
+
+Before running this project, make sure you have the following installed:
+
+1. **Anaconda**
+   - Download and install [Anaconda](https://www.anaconda.com/download)
+   - This will provide you with Python and conda package manager
+
+2. **Python Dependencies**
+   - Flask framework and other required packages
+   - Create a conda environment using the provided environment.yml file
+
+## Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/assylk/AI-Coach-Assistant-A-Deep-Learning-Powered-Coaching-Platform-Built-with-Next.js.git
+
+cd AI-Coach-Assistant-A-Deep-Learning-Powered-Coaching-Platform-Built-with-Next.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Create and activate the conda environment:
+```bash
+conda env create -f environment.yml
+conda activate fitnessai
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Install additional dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Running the Application
 
-## Learn More
+1. Start the Flask server:
+```bash
+python app.py
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Open your web browser and navigate to:
+```
+http://localhost:5000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 🏋️‍♂️ Personalized workout plans
+- 📊 Progress tracking and analytics
+- 🎯 Goal setting and monitoring
+- 🤖 AI-powered form correction
+- 📱 Responsive design for mobile and desktop
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+fitnessai/
+├── app.py              # Main Flask application
+├── models/            # ML models and data processing
+├── static/            # CSS, JavaScript, and images
+├── templates/         # HTML templates
+├── requirements.txt   # Python dependencies
+└── environment.yml    # Conda environment configuration
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+We welcome contributions! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

@@ -38,3 +38,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Flask analyzer files
+flask/flask_deadlift_analyzer.py
+flask/flask_exercise_analyzer-copy.py
+flask/flask_squat_analyzer.py

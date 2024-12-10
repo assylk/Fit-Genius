@@ -3,15 +3,100 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light mode - More balanced colors */
+  --background: #f1f1f4;  /* Slightly darker background */
+  --foreground: #1f1f23;  /* Softer black */
+  
+  /* Primary colors - Dark Gray & Red theme */
+  --primary: #dc2626;     /* Red */
+  --primary-dark: #b91c1c;
+  --primary-light: #ef4444;
+  
+  /* Accent colors - Richer grays */
+  --accent: #374151;      /* Darker gray */
+  --accent-dark: #1f2937;
+  --accent-light: #4b5563;
+  
+  /* Secondary accent - Warmer grays */
+  --secondary: #4b5563;   /* Mid gray */
+  --secondary-dark: #374151;
+  --secondary-light: #6b7280;
+  
+  /* UI colors - Softer whites */
+  --card-bg: #ffffff;
+  --card-border: #e2e4e9;  /* Slightly darker border */
+  --input-bg: #f3f4f6;    /* Less bright input */
+  --input-border: #d1d5db;
+  
+  /* Status colors - Richer tones */
+  --success: #059669;      /* Emerald green */
+  --warning: #d97706;      /* Amber */
+  --error: #dc2626;        /* Red */
+  
+  /* Text colors - Better contrast */
+  --text-muted: #6b7280;   /* Darker muted text */
+  --text-light: #9ca3af;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  
+  /* Theme transition animations */
+  --theme-transition-duration: 400ms;
+  --click-x: 50%;
+  --click-y: 50%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+[class~="dark"] {
+  /* Dark mode - Keep existing dark mode colors */
+  --background: #18181b;
+  --foreground: #fafafa;
+  
+  --primary: #ef4444;
+  --primary-dark: #dc2626;
+  --primary-light: #f87171;
+  
+  --accent: #3f3f46;
+  --accent-dark: #27272a;
+  --accent-light: #52525b;
+  
+  --card-bg: #27272a;
+  --card-border: #3f3f46;
+  --input-bg: #3f3f46;
+  --input-border: #52525b;
+  
+  --text-muted: #9ca3af;
+  --text-light: #6b7280;
+  
+  /* Shadows for dark mode */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+}
+
+/* Add some global styles */
+@layer base {
+  body {
+    @apply antialiased;
   }
+}
+
+/* Add smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.3s ease;
+}
+
+/* Card hover effects */
+.hover-card {
+  @apply transition-all duration-200 hover:shadow-md hover:translate-y-[-2px];
+}
+
+/* Button hover effects */
+.btn {
+  @apply transition-all duration-200 hover:shadow-md active:translate-y-[1px];
 }
 
 body {
@@ -19,3 +104,168 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Theme transition animations */
+.theme-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth transitions for all color changes */
+*, *::before, *::after {
+  transition: background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease,
+              fill 0.2s ease,
+              stroke 0.2s ease,
+              opacity 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+/* Card animations */
+.card-animate {
+  animation: card-enter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Theme icon animations */
+.theme-icon {
+  animation: rotate-scale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes rotate-scale {
+  0% {
+    transform: rotate(-180deg) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Theme transition overlay */
+.theme-transition-overlay {
+  position: fixed;
+  top: var(--click-y);
+  left: var(--click-x);
+  transform: translate(-50%, -50%);
+  width: 100vmax;
+  height: 100vmax;
+  background: var(--background);
+  border-radius: 50%;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform var(--theme-transition-duration) cubic-bezier(0.4, 0, 0.2, 1),
+              opacity var(--theme-transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-transition-overlay.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(2);
+}
+
+/* Smooth fade for content */
+.theme-transition-fade {
+  transition: opacity var(--theme-transition-duration) ease;
+}
+
+.theme-transition-fade.fade-out {
+  opacity: 0;
+}
+
+/* Optimize transitions */
+* {
+  @apply transition-[background-color,border-color,color,fill,stroke] duration-200;
+}
+
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1s infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes wave {
+  0%, 100% {
+    height: 20%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+@keyframes pulse-opacity {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-wave {
+  animation: wave 1s ease-in-out infinite;
+}
+
+.animate-pulse-opacity {
+  animation: pulse-opacity 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
