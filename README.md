@@ -1,10 +1,10 @@
-# FitnessAI
+# FitGenius
 
 A powerful AI-powered fitness application that helps users track their workouts, get personalized recommendations, and achieve their fitness goals.
 
 ## Project Overview
 
-FitnessAI is an intelligent fitness companion that leverages artificial intelligence to provide personalized workout plans, track progress, and offer real-time feedback on exercise form. The application uses advanced machine learning algorithms to adapt to each user's fitness level and goals.
+FitGenius is an intelligent fitness companion that leverages artificial intelligence to provide personalized workout plans, track progress, and offer real-time feedback on exercise form. The application uses advanced machine learning algorithms to adapt to each user's fitness level and goals.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ cd AI-Coach-Assistant-A-Deep-Learning-Powered-Coaching-Platform-Built-with-Next.
 2. Create and activate the conda environment:
 ```bash
 conda env create -f environment.yml
-conda activate fitnessai
+conda activate fitgenius
 ```
 
 3. Install additional dependencies:
@@ -61,7 +61,7 @@ http://localhost:5000
 ## Project Structure
 
 ```
-fitnessai/
+fitgenius/
 ├── app.py              # Main Flask application
 ├── models/            # ML models and data processing
 ├── static/            # CSS, JavaScript, and images
