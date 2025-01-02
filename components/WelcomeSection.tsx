@@ -107,8 +107,8 @@ export default function WelcomeSection({
             {/* Title Section - Adjusted text size */}
             <div className="text-center space-y-2 mb-6">
               <h1 className="text-2xl font-bold">
-                <span className="text-[var(--text)] drop-shadow-sm">AI</span>
-                <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--primary-light)] text-transparent bg-clip-text"> Fitness</span>
+                <span className="text-[var(--text)] drop-shadow-sm">Fit</span>
+                <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--primary-light)] text-transparent bg-clip-text"> Genius</span>
               </h1>
               <p className="text-sm text-[var(--text-muted)] max-w-[90%] mx-auto leading-relaxed">
                 Your personalized journey to a healthier lifestyle begins here
